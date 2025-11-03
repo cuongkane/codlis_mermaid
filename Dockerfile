@@ -22,7 +22,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 
 # Copy application code
-COPY server.js ./
+COPY server.js puppeteer-config.json ./
 
 # Expose port
 EXPOSE 8080

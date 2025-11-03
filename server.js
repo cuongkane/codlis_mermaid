@@ -38,9 +38,9 @@ app.post('/validate', async (req, res) => {
     await writeFile(inputFile, code);
 
     try {
-      // Try to render the diagram with mmdc
+      // Try to render the diagram with mmdc from @mermaid-js/mermaid-cli
       const { stderr } = await execAsync(
-        `npx -y mmdc -i "${inputFile}" -o "${outputFile}"`,
+        `./node_modules/.bin/mmdc -i "${inputFile}" -o "${outputFile}" -p puppeteer-config.json`,
         { timeout: 10000 }
       );
 
